@@ -191,7 +191,7 @@ export default function Home() {
     //if the user is not connected to goerli then tell them to switch it to goerli
      const {chainId} = await web3Provider.getNetwork();
      if(chainId !== 13308){
-      window.alert('Please switch it to goerli');
+      window.alert('Please switch it to credit');
       throw new Error("Incorrect network");
      }
      //to send data we need signer we need signer
@@ -227,7 +227,7 @@ export default function Home() {
    useEffect(()=>{
     if(!walletConnected){
       web3ModalRef.current = new Web3Modal({
-        network:"goerli",
+        network:"Credit",
         providerOptions:{},
         disableInjectedProvider:false
       });
