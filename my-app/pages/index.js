@@ -190,7 +190,7 @@ export default function Home() {
     const web3Provider = new providers.Web3Provider(provider);
     //if the user is not connected to goerli then tell them to switch it to goerli
      const {chainId} = await web3Provider.getNetwork();
-     if(chainId !== 5){
+     if(chainId !== 13308){
       window.alert('Please switch it to goerli');
       throw new Error("Incorrect network");
      }
