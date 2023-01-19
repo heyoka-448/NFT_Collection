@@ -4,18 +4,13 @@ export const NFT_CONTRACT_ABI =[
       "inputs": [
         {
           "internalType": "string",
-          "name": "_name",
+          "name": "baseURI",
           "type": "string"
         },
         {
-          "internalType": "string",
-          "name": "_symbol",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_initBaseURI",
-          "type": "string"
+          "internalType": "address",
+          "name": "whitelistContract",
+          "type": "address"
         }
       ],
       "stateMutability": "nonpayable",
@@ -116,29 +111,33 @@ export const NFT_CONTRACT_ABI =[
       "type": "event"
     },
     {
-      "inputs": [
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "_paused",
+      "outputs": [
         {
-          "internalType": "address[100]",
-          "name": "_users",
-          "type": "address[100]"
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
         }
       ],
-      "name": "add100PresaleUsers",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
-      "inputs": [
+      "inputs": [],
+      "name": "_price",
+      "outputs": [
         {
-          "internalType": "address",
-          "name": "_user",
-          "type": "address"
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
-      "name": "addPresaleUser",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -168,45 +167,6 @@ export const NFT_CONTRACT_ABI =[
         }
       ],
       "name": "balanceOf",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "baseExtension",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "baseURI",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "cost",
       "outputs": [
         {
           "internalType": "uint256",
@@ -262,7 +222,7 @@ export const NFT_CONTRACT_ABI =[
     },
     {
       "inputs": [],
-      "name": "maxMintAmount",
+      "name": "maxTokenIds",
       "outputs": [
         {
           "internalType": "uint256",
@@ -275,30 +235,6 @@ export const NFT_CONTRACT_ABI =[
     },
     {
       "inputs": [],
-      "name": "maxSupply",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_to",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_mintAmount",
-          "type": "uint256"
-        }
-      ],
       "name": "mint",
       "outputs": [],
       "stateMutability": "payable",
@@ -350,34 +286,8 @@ export const NFT_CONTRACT_ABI =[
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "bool",
-          "name": "_state",
-          "type": "bool"
-        }
-      ],
-      "name": "pause",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "inputs": [],
-      "name": "paused",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "presaleCost",
+      "name": "presaleEnded",
       "outputs": [
         {
           "internalType": "uint256",
@@ -389,14 +299,15 @@ export const NFT_CONTRACT_ABI =[
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "presaleWallets",
+      "inputs": [],
+      "name": "presaleMint",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "presaleStarted",
       "outputs": [
         {
           "internalType": "bool",
@@ -405,32 +316,6 @@ export const NFT_CONTRACT_ABI =[
         }
       ],
       "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_user",
-          "type": "address"
-        }
-      ],
-      "name": "removePresaleUser",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_user",
-          "type": "address"
-        }
-      ],
-      "name": "removeWhitelistUser",
-      "outputs": [],
-      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -482,7 +367,7 @@ export const NFT_CONTRACT_ABI =[
         },
         {
           "internalType": "bytes",
-          "name": "_data",
+          "name": "data",
           "type": "bytes"
         }
       ],
@@ -510,66 +395,8 @@ export const NFT_CONTRACT_ABI =[
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_newBaseExtension",
-          "type": "string"
-        }
-      ],
-      "name": "setBaseExtension",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_newBaseURI",
-          "type": "string"
-        }
-      ],
-      "name": "setBaseURI",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_newCost",
-          "type": "uint256"
-        }
-      ],
-      "name": "setCost",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_newCost",
-          "type": "uint256"
-        }
-      ],
-      "name": "setPresaleCost",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_newmaxMintAmount",
-          "type": "uint256"
-        }
-      ],
-      "name": "setmaxMintAmount",
+      "inputs": [],
+      "name": "startPresale",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -615,6 +442,19 @@ export const NFT_CONTRACT_ABI =[
         }
       ],
       "name": "tokenByIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenIds",
       "outputs": [
         {
           "internalType": "uint256",
@@ -718,61 +558,14 @@ export const NFT_CONTRACT_ABI =[
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_owner",
-          "type": "address"
-        }
-      ],
-      "name": "walletOfOwner",
-      "outputs": [
-        {
-          "internalType": "uint256[]",
-          "name": "",
-          "type": "uint256[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_user",
-          "type": "address"
-        }
-      ],
-      "name": "whitelistUser",
+      "inputs": [],
+      "name": "withdraw",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "whitelisted",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "withdraw",
-      "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "receive"
     }
   ]
